@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="stphoneticsyles/index.css">
+
+<%- include("header.ejs") %>
+<div class="big-box">
+    
+    <div class="box">
+       
+         <% if(locals.word && (locals.phonetics==undefined || locals.phonetics) && locals.definition && (locals.audio==undefined|| locals.audio || locals.audio.length===0 ) && (locals.example==undefined || locals.example) ){ %>
+           <p class="word"><%= word %> </p>
+           <p class="">[<%= phonetics%>]</p>
+           <% if(locals.audio){ %>
+             <audio id="audio" autoplay="autoplay"controls="controls">
+               <source src="<%= audio %>"/>
+             </audio>
+           <% } %>
+            
+           <p><b>Definition : </b></p>
+           <p class="definition"> <%= definition %> </p>
+           <% if(locals.example==undefined){ %>
+               <p><b>Example not found</b></p>
+           <% }else{ %>
+
+              <p><b>Example : </b></p>
+              <p class="example"><%= example %> </p>
+           <% } %>   
+        <% }else{ %>
+            <h1 class="word"><b>Word not found</b></h1>
+            <p></p>
+            <p class="example">No Definitions Found</p>
+            <p class="example">We couldn't find definitions for the word you were looking for</p>
+            <p class="example1" ><b>You can try the search again at later time</b></p>
+        <% } %>   
+
+    </div>
+</div>
+
+
+
+<%- include("footer.ejs") %>
