@@ -1,11 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 const app = express();
-const api_url =process.env.API_KEY;
+const api_url ="https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 app.use(bodyParser.urlencoded({extended : true}));
 
